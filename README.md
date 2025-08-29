@@ -26,8 +26,8 @@ A robust, secure, and scalable backend banking API built with .NET 8, following 
 ## Prerequisites
 
 - .NET 8 SDK
-- MySQL Server
-- Redis Server
+- SQL Server
+- Redis Inmemory
 - A [Paystack](https://paystack.com/) account for test keys
 
 ##  Setup & Installation
