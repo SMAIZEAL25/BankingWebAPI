@@ -1,0 +1,55 @@
+﻿using BankingWebAPI.Application.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace BankingWebAPI.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
+    public class AccountsController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+        private readonly ILogger<AccountsController> _logger;
+
+        public AccountsController(IMediator mediator, ILogger<AccountsController> logger)
+        {
+            _mediator = mediator;
+            _logger = logger;
+        }
+
+        [HttpGet("{accountNumber}/transactions")]
+        [Authorize(Roles = "Reader")]
+        public async Task<IActionResult> GetTransactionHistory(string accountNumber)
+        {
+            try
+            {
+                var result = await _mediator.Send(new GetAccountTransactionHistoryQuery(accountNumber));
+                return result.IsSuccess ? Ok(result) : NotFound(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving transaction history for {AccountNumber}", accountNumber);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("{accountNumber}/monthly-statement/{months}")]
+        [Authorize(Roles = "Reader")]
+        public async Task<IActionResult> GetMonthlyStatement(string accountNumber, int months)
+        {
+            try
+            {
+                var result = await _mediator.Send(new GetMonthlyTransactionStatementQuery(accountNumber, months));
+                return result.IsSuccess ? Ok(result) : NotFound(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving monthly statement for {AccountNumber}", accountNumber);
+                return StatusCode(500, "Internal server error");
+            }
+        }
+    }
+}

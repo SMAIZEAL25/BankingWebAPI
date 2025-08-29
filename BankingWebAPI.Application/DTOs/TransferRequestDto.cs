@@ -1,0 +1,21 @@
+﻿using BankingApp.Domain.Enums;
+using BankingWebAPI.Domain.Enums;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BankingWebAPI.Application.DTOs
+{
+    public class TransferRequestDto
+    {
+        public string AccountNumber { get; set; }
+        public string BeneficiaryName { get; set; }
+        public string BeneficiaryAccountNumber { get; set; }
+        public decimal Amount { get; set; }
+        public BankName BeneficiaryBank { get; set; }
+        public CurrencyTypes Currency { get; set; }
+    }
+}
+

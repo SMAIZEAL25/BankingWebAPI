@@ -1,0 +1,42 @@
+﻿using BankingWebAPI.Application.DTOs;
+using BankingWebAPI.Domain.Enums;
+using FluentValidation;
+
+namespace BankingWebAPI.FluentValidations
+{
+    public class AccountOpeningValidator : AbstractValidator<UserDTO>
+    {
+        public AccountOpeningValidator()
+        {
+            RuleFor(x => x.FirstName).NotEmpty().MaximumLength(50);
+            RuleFor(x => x.LastName).NotEmpty().MaximumLength(50);
+
+            RuleFor(x => x.Email)
+                .NotEmpty().EmailAddress()
+                .WithMessage("Invalid email format");
+
+            RuleFor(x => x.PhoneNumber)
+                .Matches(@"^\+?234[0-9]{10}$")
+                .WithMessage("Phone number must be in Nigerian format e.g. +234xxxxxxxxxx");
+
+            RuleFor(x => x.StateOfOrigin)
+                .NotEmpty()
+                .Must(BeAValidNigerianState)
+                .WithMessage("Invalid Nigerian state");
+
+            RuleFor(x => x.DateOfBirth)
+                .Must(BeAtLeast18YearsOld)
+                .WithMessage("User must be at least 18 years old");
+        }
+
+        private bool BeAtLeast18YearsOld(DateTime dateOfBirth)
+        {
+            return dateOfBirth <= DateTime.Today.AddYears(-18);
+        }
+
+        private bool BeAValidNigerianState(NigerianStates state)
+        {
+            return Enum.IsDefined(typeof(NigerianStates), state);
+        }
+    }
+}
