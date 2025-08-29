@@ -15,7 +15,7 @@ A robust, secure, and scalable backend banking API built with .NET 8, following 
 ## Tech Stack
 
 - **Framework**: .NET 8
-- **Database**: MySQL with Entity Framework Core
+- **Database**: SQL Server with Entity Framework Core
 - **CQRS & Mediator**: MediatR with FluentValidation
 - **Caching**: Redis
 - **Authentication**: JWT Bearer Tokens
