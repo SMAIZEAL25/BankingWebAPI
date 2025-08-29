@@ -21,8 +21,7 @@ A robust, secure, and scalable backend banking API built with .NET 8, following 
 - **Authentication**: JWT Bearer Tokens
 - **External API**: Paystack Integration
 - **Logging**: Serilog
-- **Testing**: xUnit, Moq, FluentAssertions
-- **Documentation**: Swagger/OpenAPI
+- **Documentation**: Swagger
 
 ## Prerequisites
 
