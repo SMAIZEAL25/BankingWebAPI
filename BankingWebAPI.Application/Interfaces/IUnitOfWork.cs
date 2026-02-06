@@ -1,6 +1,4 @@
-﻿
-
-using BankingApp.Domain.Entities;
+﻿using BankingApp.Domain.Entities;
 using BankingWebAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -14,13 +12,11 @@ namespace BankingWebAPI.Application.Interfaces
     {
         IRepository<User> Users { get; }
         IRepository<Transaction> Transactions { get; }
-        IRepository<Account> Account { get; }
+        IRepository<Account> Account { get; }           // consider renaming to Accounts for consistency
         IAccountRepository Accounts { get; }
-        IBankingService BankingService { get; }
-        IAccountServices AccountServices { get; }
-        IViewAccountBalance ViewAccountBalance { get; }
+        IViewAccountBalance ViewAccountBalance { get; }  // if this is truly a repository/view
         IAccountingHistoryRepository GetAccountingHistory { get; }
 
-        Task<int> CommitAsync(); 
+        Task<int> CommitAsync();
     }
 }

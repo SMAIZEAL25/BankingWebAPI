@@ -2,7 +2,7 @@
 using AutoMapper;
 using BankingApp.Domain.Entities;
 using BankingApp.Domain.Enums;
-
+using BankingApp.Infrastructure.Database;
 using BankingWebAPI.Application.DTOs;
 using BankingWebAPI.Application.Interfaces;
 using BankingWebAPI.Application.Response;
@@ -16,11 +16,11 @@ namespace BankingWebAPI.Infrastructure.Repositories
 {
     public class AccountingHistoryRepository : IAccountingHistoryRepository
     {
-        private readonly DbContext _context;
+        private readonly BankingDbContext _context;
         private readonly ILogger<AccountingHistoryRepository> _logger;
         private readonly IMapper _mapper;
 
-        public AccountingHistoryRepository (DbContext context, ILogger<AccountingHistoryRepository> logger, IMapper mapper)
+        public AccountingHistoryRepository (BankingDbContext context, ILogger<AccountingHistoryRepository> logger, IMapper mapper)
         {
             _context = context;
             _logger = logger;

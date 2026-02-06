@@ -16,12 +16,11 @@ using BankingWebAPI.Infrastruture.Services;
 using BankingWebAPI.Mappings;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
@@ -153,7 +152,7 @@ namespace BankingWebAPI.Presentation
                 options.AddHealthCheckEndpoint("Auth DB", "/health/auth-db");
                 options.SetEvaluationTimeInSeconds(30);
             })
-       .AddInMemoryStorage();
+.AddInMemoryStorage();
 
 
             builder.Services.AddCors(options =>
