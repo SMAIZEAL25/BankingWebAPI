@@ -27,9 +27,9 @@
 		<PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.0" />
 
 		<!-- HealthChecks -->
-		<PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.0" />
-		<PackageReference Include="AspNetCore.HealthChecks.UI" Version="9.0.0" />
-		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+		<PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI" Version="8.0.2" />
+		<PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="8.0.1" />
 
 		<!-- MediatR -->
 		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />

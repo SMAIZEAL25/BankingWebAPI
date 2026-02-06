@@ -16,8 +16,6 @@ using BankingWebAPI.Infrastruture.Services;
 using BankingWebAPI.Mappings;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using HealthChecks.UI;
-using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
