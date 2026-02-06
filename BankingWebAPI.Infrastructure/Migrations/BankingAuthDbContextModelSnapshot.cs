@@ -4,19 +4,16 @@ using BankingWebAPI.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BankingWebAPI.Infrastructure.Migrations.BankingAuthDb
+namespace BankingWebAPI.Infrastructure.Migrations
 {
     [DbContext(typeof(BankingAuthDbContext))]
-    [Migration("20260206162657_InitialCreate")]
-    partial class InitialCreate
+    partial class BankingAuthDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
